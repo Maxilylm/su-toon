@@ -1,0 +1,161 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #e2e8f0;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+.error {
+  background: #7f1d1d;
+  color: #fca5a5;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  font-family: monospace;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.controls .primary {
+  background: #3b82f6;
+  color: #fff;
+}
+.controls .primary:hover {
+  background: #2563eb;
+}
+
+.controls .secondary {
+  background: #334155;
+  color: #cbd5e1;
+}
+.controls .secondary:hover {
+  background: #475569;
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  flex: 1;
+}
+
+@media (max-width: 700px) {
+  .panels {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: #0f172a;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.panel-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tokens {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.savings {
+  background: #065f46;
+  color: #6ee7b7;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.copy-btn {
+  background: #334155;
+  color: #cbd5e1;
+  border: none;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.copy-btn:hover {
+  background: #475569;
+}
+
+.panel textarea {
+  flex: 1;
+  min-height: 400px;
+  background: transparent;
+  color: #e2e8f0;
+  border: none;
+  padding: 0.75rem;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+}
+
+.panel textarea::placeholder {
+  color: #475569;
+}
+
+footer {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  color: #64748b;
+  font-size: 0.8rem;
+}
