@@ -2,7 +2,7 @@
 
 > Convert JSON to Token-Oriented Object Notation and back, with a side-by-side token estimate.
 
-**[Live demo](https://su-toon.vercel.app)**
+**[Live demo](https://toon-mlx.vercel.app)**
 
 Stuffing JSON into an LLM prompt wastes tokens on braces, quotes, and repeated keys. TOON encodes the same data using indentation and tabular arrays instead — a uniform array of objects becomes a header row like `employees [4] {name, role, age}` followed by pipe-delimited rows, so each key is written once rather than once per element. This app converts in both directions and shows an estimated token count for each panel so you can see the difference on your own data. The converter is hand-written TypeScript with no dependencies; everything runs in the browser.
 
@@ -31,4 +31,4 @@ npm run dev
 
 ---
 
-Part of a series of 91 small web apps. [Browse them all](https://su-slopmachine.vercel.app).
+Part of a series of 91 small web apps. [Browse them all](https://lorenzoylosada.vercel.app).
