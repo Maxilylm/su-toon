@@ -1,73 +1,34 @@
-# React + TypeScript + Vite
+# TOON Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Convert JSON to Token-Oriented Object Notation and back, with a side-by-side token estimate.
 
-Currently, two official plugins are available:
+**[Live demo](https://su-toon.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Stuffing JSON into an LLM prompt wastes tokens on braces, quotes, and repeated keys. TOON encodes the same data using indentation and tabular arrays instead — a uniform array of objects becomes a header row like `employees [4] {name, role, age}` followed by pipe-delimited rows, so each key is written once rather than once per element. This app converts in both directions and shows an estimated token count for each panel so you can see the difference on your own data. The converter is hand-written TypeScript with no dependencies; everything runs in the browser.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- JSON to TOON conversion with tabular encoding for uniform object arrays
+- TOON back to JSON via a hand-written indentation-aware parser
+- Estimated token count per panel and a percentage-saved badge
+- Built-in sample document to try the format immediately
+- Copy buttons for both panels and inline parse-error messages
 
-## Expanding the ESLint configuration
+## Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Vite 8 with React 19 and TypeScript
+- No runtime dependencies beyond React — the converter and parser are plain TypeScript
+- Frontend-only; no backend or API calls
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Token counts are approximated at four characters per token, so treat them as a relative comparison rather than an exact tokenizer result.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Running locally
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Part of a series of 91 small web apps. [Browse them all](https://su-slopmachine.vercel.app).
