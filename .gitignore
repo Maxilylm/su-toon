@@ -26,3 +26,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.next/
+.env
+.env.local
+.claude/
